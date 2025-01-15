@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: inventory-system
+    env: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn inventory_management.wsgi:application
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.11.0
+      - key: DATABASE_URL
+        value: your-database-url

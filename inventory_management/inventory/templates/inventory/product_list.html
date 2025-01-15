@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>Products</h2>
+<a href="{% url 'product-create' %}" class="btn btn-primary mb-3">Add New Product</a>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Stock Level</th>
+            <th>Price</th>
+            <th>Supplier</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for product in products %}
+        <tr>
+            <td>{{ product.name }}</td>
+            <td>{{ product.stock_level }}</td>
+            <td>{{ product.price }}</td>
+            <td>{{ product.supplier.name }}</td>
+            <td>
+                <!-- Add edit/delete buttons -->
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}
